@@ -3,6 +3,7 @@ package com.example.demo.product;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -30,10 +31,15 @@ public class ProductController {
 
     //상품 등록
     @RequestMapping(value="/products", method=RequestMethod.POST)
-    public void saveProduct(@RequestParam(value="name") String productName) {
+      public void saveProduct(@RequestBody Product product) {
       // localhot:8080/products?name=_____=>productName
       System.out.println("POST");
-      productService.saveProduct(productName);
+      productService.saveProduct(product);    
+    
+    //public void saveProduct(@RequestParam(value="name") String productName) {
+      // localhot:8080/products?name=_____=>productName
+      //System.out.println("POST");
+      //productService.saveProduct(productName);
     }
     
 }   

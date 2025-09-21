@@ -15,8 +15,10 @@ public class ProductRepository {
     return db.get(idx);
   }
 
-  public void save(String productName){
-    db.put(id++,productName);
+  public void save(Product product){
+   System.out.println(product.getName());
+
+    // db.put(id++,productName);
   }
 
 }
